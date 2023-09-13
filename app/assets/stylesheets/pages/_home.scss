@@ -1,1 +1,31 @@
 // Specific CSS for your home-page
+
+navbar bas de page
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid my-2">
+    <%= link_to root_path, class: "navbar-brand" do %>
+     <%# <i class="fa-solid fa-house ps-1" style="color: #f89c48;"></i> %>
+     <i class="fa-solid fa-house fa-xl ps-1" style="color: #f89c48;"></i>
+    <% end %>
+
+    <%= link_to new_trip_path, class: "navbar-brand" do %>
+     <i class="fa-solid fa-plus fa-xl" style="color: #f89c48;"></i>
+    <% end %>
+
+
+    <% if user_signed_in? && !current_user.trips.empty? %>
+      <%= link_to trip_path(current_user.trips.last), class: "navbar-brand" do %>
+        <i class="fa-solid fa-plane fa-rotate-270 fa-xl" style="color: #f89c48;"></i>
+      <% end %>
+
+    <% end %>
+
+
+    <%= link_to profile_path, class: "navbar-brand" do %>
+     <i class="fa-regular fa-user fa-xl" style="color: #f89c48;"></i>
+    <% end %>
+
+    </div>
+  </div>
+</div>
