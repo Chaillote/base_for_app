@@ -12,4 +12,13 @@ class Restaurant < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
+
+
+def cannot_reserve_own_cat
+  if user_id == cat.user_id
+    errors.add(:user_id, "cannot reserve their own cat")
+  end
+
+  
 end
